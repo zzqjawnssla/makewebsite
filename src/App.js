@@ -25,7 +25,7 @@ function App() {
     const [isLogin, setIsLogin] = useState(false);
   return (
     <div>
-      <NaveBar />
+      <NaveBar isLogin={isLogin} setIsLogin={setIsLogin} />
       <Routes>
         <Route path="/" element={<ProductAll />} />
         <Route path="/login" element={<Login setIsLogin={ setIsLogin }/>} />
