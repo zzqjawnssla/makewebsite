@@ -9,6 +9,12 @@ const NaveBar = () => {
     const gotoLogin = () => {
         navigate("/login");
     }
+    const search = (e) => {
+        if(e.key === "Enter") {
+            let keyword = e.target.value;
+            navigate(`/?q=${keyword}`);
+        }
+    }
     return (
         <div>
             <div className="login-button" onClick={gotoLogin}>
@@ -19,6 +25,7 @@ const NaveBar = () => {
                 <img
                     width={100}
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/709px-H%26M-Logo.svg.png"
+                    alt=""
                 />
             </div>
             <div className="menu-area">
@@ -27,9 +34,9 @@ const NaveBar = () => {
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
-                <div className="login-button">
+                <div className="search-box">
                     <FontAwesomeIcon icon={faSearch} />
-                    <div aria-placeholder="검색하기">__</div>
+                    <input type="text" onKeyPress={search} />
                 </div>
             </div>
         </div>
